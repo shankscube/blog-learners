@@ -1,0 +1,20 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "for demo",
+  "license": "ISC",
+  "author": "Shashank",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mysql2": "^3.24.2",
+    "nodemon": "^3.1.14",
+    "sequelize": "^6.37.8"
+  }
+}
