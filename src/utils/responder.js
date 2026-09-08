@@ -1,7 +1,7 @@
 const responses = require('../configs/constants').responses;
 
 exports.responseOk = (response, statuscode, data) => {
-    response.status(statuscode).json({
+    response.status(200).json({
         status: true,
         message: responses[statuscode],
         code: statuscode,
@@ -10,7 +10,7 @@ exports.responseOk = (response, statuscode, data) => {
 }
 
 exports.responseIssues = (response, statuscode) => {
-    response.status(statuscode).json({
+    response.status(500).json({
         status: false,
         message: responses[statuscode],
         code: statuscode,
