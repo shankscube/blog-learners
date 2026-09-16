@@ -1,11 +1,24 @@
-const authService = require("../services/authService");
+const authService = require("../services/AuthService");
 const logger = require("../utils/logger");
 const { responseOk, responseIssues } = require("../utils/responder");
 
-exports.Login = (req, res) => {
-  res.json({
-    message: "Login data",
-  });
+exports.Login = async (request, response) => {
+  try {
+    const data = await authService.loginUser(request.body);
+
+    logger.info("User login successful", {
+      userId: data.user.id,
+      email: data.user.email,
+    });
+
+    return responseOk(response, "LOGIN_SUCCESS", data);
+  } catch (error) {
+    logger.error("User login error", {
+      message: error.message,
+    });
+
+    return responseIssues(response, "SERVER_ERROR");
+  }
 };
 
 exports.Signup = async (request, response) => {

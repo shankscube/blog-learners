@@ -1,10 +1,11 @@
 exports.responses = {
   SERVER_ERROR: "Server error",
+  LOGIN_SUCCESS: "User logged in successfully",
+  USER_CREATED: "User registered successfully",
   USER_FOUND: "User found successfully",
   USERS_FOUND: "Users found successfully",
   INVALID_CREDENTIALS: "Invalid credentials",
   USER_NOT_FOUND: "User not found",
-  USER_CREATED: "User created successfully",
   USER_FAILED: "User creation failed",
   USER_BANNED_BY_ADMIN: "User is banned by admin",
   CATEGORY_FETCHED: "Category fetched successfully",
