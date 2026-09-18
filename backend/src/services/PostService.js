@@ -1,6 +1,8 @@
 const Post = require("../models/Post");
+const User = require("../models/User");
 const PostComment = require("../models/PostComment");
 const PostLike = require("../models/PostLike");
+
 const { Sequelize } = require("sequelize");
 // CREATE POST
 exports.createPost = async (postData) => {
@@ -57,8 +59,15 @@ exports.createPost = async (postData) => {
 };
 
 // GET ALL POSTS
-exports.getPosts = async () => {
+exports.getPosts = async (userId) => {
   const posts = await Post.findAll({
+    include: [
+      {
+        model: User,
+        as: "author",
+        attributes: ["id", "username"],
+      },
+    ],
     attributes: {
       include: [
         [
@@ -77,6 +86,15 @@ exports.getPosts = async () => {
             WHERE comments.post_id = Post.id
           )`),
           "comments_count",
+        ],
+        [
+          Sequelize.literal(`(
+            SELECT COUNT(*)
+            FROM post_likes AS user_likes
+            WHERE user_likes.post_id = Post.id
+            AND user_likes.user_id = ${Number(userId)}
+          )`),
+          "isLiked",
         ],
       ],
     },
@@ -86,8 +104,15 @@ exports.getPosts = async () => {
 };
 
 // GET POST BY ID
-exports.getPostById = async (id) => {
+exports.getPostById = async (id, userId) => {
   const post = await Post.findByPk(id, {
+    include: [
+      {
+        model: User,
+        as: "author",
+        attributes: ["id", "username"],
+      },
+    ],
     attributes: {
       include: [
         [
@@ -105,6 +130,15 @@ exports.getPostById = async (id) => {
             WHERE comments.post_id = Post.id
           )`),
           "comments_count",
+        ],
+        [
+          Sequelize.literal(`(
+            SELECT COUNT(*)
+            FROM post_likes AS user_likes
+            WHERE user_likes.post_id = Post.id
+            AND user_likes.user_id = ${Number(userId)}
+          )`),
+          "isLiked",
         ],
       ],
     },
@@ -232,6 +266,43 @@ exports.likePost = async (postId, userId) => {
   });
 
   return like;
+};
+
+exports.toggleLike = async (postId, userId) => {
+  const post = await Post.findByPk(postId);
+
+  if (!post) {
+    throw new Error("Post not found");
+  }
+
+  const existingLike = await PostLike.findOne({
+    where: {
+      post_id: postId,
+      user_id: userId,
+    },
+  });
+
+  if (existingLike) {
+    await existingLike.destroy();
+
+    return {
+      post_id: postId,
+      isLiked: false,
+      message: "Post unliked successfully",
+    };
+  }
+
+  await PostLike.create({
+    post_id: postId,
+    user_id: userId,
+    created_at: new Date(),
+  });
+
+  return {
+    post_id: postId,
+    isLiked: true,
+    message: "Post liked successfully",
+  };
 };
 
 // Unlike post

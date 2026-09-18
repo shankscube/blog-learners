@@ -20,7 +20,7 @@ router.post("/comment/:id", postMiddleware, postController.createComment);
 router.delete("/comment/:id", postMiddleware, postController.deleteComment);
 
 // Likes
-router.post("/like/:id", postMiddleware, postController.likePost);
-router.delete("/like/:id", postMiddleware, postController.unlikePost);
+router.post("/like/:id", postMiddleware, postController.toggleLike);
+// router.delete("/like/:id", postMiddleware, postController.unlikePost);
 
 module.exports = router;

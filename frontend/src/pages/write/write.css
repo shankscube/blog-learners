@@ -1,72 +1,177 @@
 .write {
-  padding-top: 50px;
+  min-height: calc(100vh - 60px);
+  padding: 50px 20px;
+  background: #f7f7f7;
 }
 
-.writeImg {
-  margin-left: 150px;
-  width: 70vw;
-  height: 250px;
+.writeWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px 50px;
   border-radius: 10px;
-  object-fit: cover;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.writeHeading {
+  margin: 0;
+  text-align: center;
+  font-family: "Lora", serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: #222;
+}
+
+.writeSubHeading {
+  text-align: center;
+  color: #777;
+  font-size: 15px;
+  margin: 10px 0 35px;
+  font-family: "Varela Round", sans-serif;
 }
 
 .writeForm {
-  position: relative;
+  width: 100%;
 }
 
 .writeFormGroup {
-  margin-left: 150px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  margin-bottom: 25px;
 }
 
-.writeIcon {
-  width: 25px;
-  height: 25px;
-  font-size: 20px;
-  border: 1px solid;
-  border-radius: 50%;
-  color: rgb(129, 125, 125);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+.writeLabel {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  font-family: "Varela Round", sans-serif;
 }
 
 .writeInput {
-  font-size: 30px;
-  border: none;
-  padding: 20px;
-  width: 70vw;
-}
-
-.writeInput::placeholder {
-  color: rgb(189, 185, 185);
-  font-weight: 400;
+  width: 100%;
+  padding: 13px 15px;
+  box-sizing: border-box;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  outline: none;
+  font-size: 16px;
+  font-family: "Varela Round", sans-serif;
+  transition: border-color 0.2s ease;
 }
 
 .writeInput:focus {
-  outline-style: none;
+  border-color: #555;
+}
+
+.writeInput::placeholder {
+  color: #aaa;
+}
+
+.writeSelect {
+  width: 100%;
+  padding: 13px 15px;
+  box-sizing: border-box;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  background: #fff;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.writeSelect:focus {
+  border-color: #555;
+}
+
+.writeSummary {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
 }
 
 .writeText {
-  width: 70vw;
-  height: 100vh;
-  font-family: inherit;
-  font-size: 20px;
+  min-height: 350px;
+  resize: vertical;
+  line-height: 1.8;
+}
+
+.writeImg {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 7px;
+  margin-top: 15px;
+}
+
+.slugPreview {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 10px 12px;
+  border-radius: 5px;
+  margin-top: -10px;
+  margin-bottom: 25px;
+  font-size: 13px;
+  color: #777;
+  font-family: "Varela Round", sans-serif;
+}
+
+.slugPreview strong {
+  color: #444;
+  font-weight: 500;
 }
 
 .writeSubmit {
-  position: absolute;
-  top: 20px;
-  right: 50px;
-  color: white;
-  background-color: teal;
-  padding: 10px;
+  display: block;
+  width: 180px;
+  margin: 30px auto 0;
+  padding: 13px 20px;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
+  background: teal;
+  color: white;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  display: flex;
-  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.writeSubmit:hover {
+  background: #006666;
+}
+
+.writeSubmit:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 768px) {
+  .write {
+    padding: 25px 15px;
+  }
+
+  .writeWrapper {
+    padding: 25px 20px;
+  }
+
+  .writeHeading {
+    font-size: 28px;
+  }
+
+  .writeSubHeading {
+    font-size: 14px;
+  }
+
+  .writeText {
+    min-height: 250px;
+  }
+
+  .writeSubmit {
+    width: 100%;
+  }
 }

@@ -1,3 +1,360 @@
-.home {
+.homepage {
+  background: #ffffff;
+
+  min-height: calc(100vh - 70px);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.heroSection {
+  max-width: 1200px;
+
+  min-height: 450px;
+
+  margin: 0 auto;
+
+  padding: 70px 25px;
+
+  box-sizing: border-box;
+
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 650px;
+}
+
+.heroTag {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  color: teal;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.heroContent h1 {
+  margin: 0;
+
+  color: #222222;
+
+  font-size: 58px;
+  line-height: 1.08;
+
+  font-weight: 750;
+
+  letter-spacing: -2px;
+}
+
+.heroContent h1 span {
+  color: teal;
+}
+
+.heroContent p {
+  max-width: 570px;
+
+  margin: 22px 0 0;
+
+  color: #777777;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+/* Hero buttons */
+
+.heroActions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.heroPrimaryButton {
+  padding: 13px 22px;
+
+  background: teal;
+
+  color: white;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.heroPrimaryButton:hover {
+  background: #006d6d;
+
+  transform: translateY(-1px);
+}
+
+.heroSecondaryButton {
+  padding: 12px 22px;
+
+  background: white;
+
+  color: #333333;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.heroSecondaryButton:hover {
+  border-color: teal;
+
+  color: teal;
+}
+
+/* Hero decoration */
+
+.heroDecoration {
+  width: 350px;
+  height: 350px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e9f7f7;
+}
+
+.heroCircle {
+  width: 210px;
+  height: 210px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: teal;
+
+  color: white;
+
+  border-radius: 50%;
+
+  font-size: 100px;
+  font-weight: 700;
+
+  box-shadow: 0 20px 50px rgba(0, 128, 128, 0.2);
+}
+
+/* =========================
+   LATEST SECTION
+========================= */
+
+.latestSection {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 60px 25px 80px;
+}
+
+.sectionHeader {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+}
+
+.sectionTag {
+  color: teal;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.sectionHeader h2 {
+  margin: 6px 0;
+
+  color: #222222;
+
+  font-size: 32px;
+
+  font-weight: 700;
+}
+
+.sectionHeader p {
+  margin: 0;
+
+  color: #888888;
+
+  font-size: 14px;
+}
+
+.desktopViewAll {
+  color: teal;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.desktopViewAll:hover {
+  text-decoration: underline;
+}
+
+/* Loading */
+
+.loading {
+  padding: 50px;
+
+  text-align: center;
+
+  color: #888888;
+
+  font-size: 14px;
+}
+
+.emptyPosts {
+  padding: 50px;
+
+  text-align: center;
+
+  color: #888888;
+
+  background: #fafafa;
+
+  border-radius: 12px;
+}
+
+/* Mobile View All */
+
+.mobileViewAll {
+  display: none;
+
+  text-align: center;
+
+  margin-top: 30px;
+}
+
+.mobileViewAll a {
+  display: inline-block;
+
+  padding: 12px 22px;
+
+  background: teal;
+
+  color: white;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: auto;
+
+    padding: 55px 20px;
+
+    text-align: center;
+
+    justify-content: center;
+  }
+
+  .heroContent {
+    max-width: 100%;
+  }
+
+  .heroContent h1 {
+    font-size: 42px;
+
+    letter-spacing: -1px;
+  }
+
+  .heroContent p {
+    font-size: 15px;
+  }
+
+  .heroActions {
+    justify-content: center;
+  }
+
+  .heroDecoration {
+    display: none;
+  }
+
+  .latestSection {
+    padding: 40px 20px 60px;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+  }
+
+  .sectionHeader h2 {
+    font-size: 27px;
+  }
+
+  .desktopViewAll {
+    display: none;
+  }
+
+  .mobileViewAll {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 36px;
+  }
+
+  .heroActions {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .heroPrimaryButton,
+  .heroSecondaryButton {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    text-align: center;
+  }
 }

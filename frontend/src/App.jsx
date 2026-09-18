@@ -9,22 +9,25 @@ import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
 import Mypost from "./pages/mypost/mypost";
+import AllBlogs from "./pages/AllBlogs/AllBlogs";
+import CreateCategory from "./pages/categories/Categories";
 
 function App() {
   const { user } = useContext(Context);
   console.log(user);
   return (
     <>
-      <Topbar />
+      {/* <Topbar /> */}
 
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/posts" element={<Homepage />} />
+        <Route path="/posts" element={<AllBlogs />} />
         <Route path="/register" element={<Register />} />
         {/* <Route path="/mypost" element={<Mypost />}/>  */}
         <Route path="/login" element={<Login />} />
         {/* {currentUser ? <Homepage /> : <Login />} */}
         <Route path="/post/:id" element={<Single />} />
+        <Route path="/category" element={<CreateCategory />} />
 
         <Route path="/write" element={<Write />} />
         {/* {currentUser ? <Write /> : <Login />} */}

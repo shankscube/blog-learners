@@ -21,7 +21,10 @@ exports.createPost = async (request, response) => {
 
 exports.getPosts = async (request, response) => {
   try {
-    const posts = await postService.getPosts();
+    const userId = request.user.id;
+    console.log(userId, "User ID from request.user.id");
+
+    const posts = await postService.getPosts(userId);
     logger.info("Posts fetched successfully", {
       count: posts.length,
     });
@@ -34,9 +37,35 @@ exports.getPosts = async (request, response) => {
   }
 };
 
+exports.toggleLike = async (request, response) => {
+  try {
+    const result = await postService.toggleLike(
+      request.params.id,
+      request.user.id
+    );
+
+    logger.info("Post like toggled", {
+      postId: request.params.id,
+      userId: request.user.id,
+      isLiked: result.isLiked,
+    });
+
+    return responseOk(response, "LIKE_UPDATED", result);
+  } catch (error) {
+    logger.error("Toggle like error", {
+      message: error.message,
+    });
+
+    return responseIssues(response, "SERVER_ERROR");
+  }
+};
+
 exports.getPostById = async (request, response) => {
   try {
-    const post = await postService.getPostById(request.params.id);
+    const post = await postService.getPostById(
+      request.params.id,
+      request.user.id
+    );
     logger.info("Post found successfully", {
       postId: post.id,
     });

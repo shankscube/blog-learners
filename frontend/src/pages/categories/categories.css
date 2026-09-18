@@ -1,0 +1,136 @@
+.createCategory {
+  min-height: calc(100vh - 60px);
+  padding: 50px 20px;
+  background: #f7f7f7;
+}
+
+.createCategoryWrapper {
+  max-width: 650px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px 45px;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.createCategoryTitle {
+  margin: 0;
+  text-align: center;
+  font-family: "Lora", serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #222;
+}
+
+.createCategorySubtitle {
+  text-align: center;
+  margin: 10px 0 35px;
+  color: #777;
+  font-size: 15px;
+  font-family: "Varela Round", sans-serif;
+}
+
+.createCategoryForm {
+  width: 100%;
+}
+
+.categoryFormGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.categoryFormGroup label {
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  font-family: "Varela Round", sans-serif;
+}
+
+.categoryFormGroup input,
+.categoryFormGroup textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  outline: none;
+  font-size: 15px;
+  font-family: "Varela Round", sans-serif;
+  transition: border-color 0.2s ease;
+}
+
+.categoryFormGroup input {
+  height: 48px;
+}
+
+.categoryFormGroup textarea {
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.categoryFormGroup input:focus,
+.categoryFormGroup textarea:focus {
+  border-color: #555;
+}
+
+.categoryFormGroup input::placeholder,
+.categoryFormGroup textarea::placeholder {
+  color: #aaa;
+}
+
+.slugHelp {
+  margin-top: 7px;
+  color: #777;
+  font-size: 12px;
+}
+
+.fieldHelp {
+  margin-top: 7px;
+  color: #888;
+  font-size: 12px;
+}
+
+.categorySubmit {
+  display: block;
+  width: 200px;
+  margin: 30px auto 0;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 6px;
+  background: teal;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.categorySubmit:hover {
+  background: #006666;
+}
+
+.categorySubmit:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 768px) {
+  .createCategory {
+    padding: 25px 15px;
+  }
+
+  .createCategoryWrapper {
+    padding: 30px 20px;
+  }
+
+  .createCategoryTitle {
+    font-size: 27px;
+  }
+
+  .categorySubmit {
+    width: 100%;
+  }
+}
